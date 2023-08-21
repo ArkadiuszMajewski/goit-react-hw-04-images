@@ -62,7 +62,7 @@ const SearchBar = () => {
     if (search.length === 0) {
       componentWillUnmount();
     }
-  }, [search, limit]);
+  }, [search, limit, key, page]);
 
   const addExtraImg = () => {
     if (search !== '') {
