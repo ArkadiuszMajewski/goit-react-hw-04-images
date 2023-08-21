@@ -37,7 +37,7 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    const fetchPhotos = async (search, limit) => {
+    const fetchPhotos = async (search, page, key, limit) => {
       // setIsLoading(true);
       try {
         const response = await fetch(
@@ -58,7 +58,7 @@ const SearchBar = () => {
       }
     };
     if (search.length > 0) {
-      fetchPhotos(search, page, key, limit);
+      fetchPhotos(search, limit);
     }
     if (search.length === 0) {
       componentWillUnmount();
