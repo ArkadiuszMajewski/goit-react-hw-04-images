@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import '../styles.css';
-
 import ImageGallery from './ImageGallery';
 import ButtonLoad from './Button';
 import Loader from './loader';
@@ -37,7 +36,7 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    const fetchPhotos = async (search, limit) => {
+    const fetchPhotos = async () => {
       setIsLoading(true);
       try {
         const response = await fetch(
