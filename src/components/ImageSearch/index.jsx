@@ -37,8 +37,8 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    const fetchPhotos = async (search, page, key, limit) => {
-      // setIsLoading(true);
+    const fetchPhotos = async (search, limit) => {
+      setIsLoading(true);
       try {
         const response = await fetch(
           `https://pixabay.com/api/?q=${search}&page=${page}&key=${key}&image_type=photo&orientation=horizontal&per_page=${limit}`
