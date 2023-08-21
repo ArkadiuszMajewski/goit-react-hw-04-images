@@ -13,10 +13,10 @@ const SearchBar = () => {
   const [hits, setHits] = useState([]);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-  const [key, setKey] = useState('36819144-796cb24dbda7f1c215c0374a0');
+  const [key] = useState('36819144-796cb24dbda7f1c215c0374a0');
   const [limit, setLimit] = useState(12);
   const [isLoading, setIsLoading] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen] = useState(false);
   const [totalHits, setTotalHits] = useState(1);
 
   const handleSubbmit = evt => {
