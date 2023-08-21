@@ -1,40 +1,36 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import '../styles.css';
 import Modal from './Modal';
 import PropTypes from 'prop-types';
 
-class ImageGalleryItem extends Component {
-  state = { modalIsOpen: false };
-
-  handleModal = () => {
-    this.setState(({ modalIsOpen }) => ({ modalIsOpen: !modalIsOpen }));
+const ImageGalleryItem = ({ tags, webformatURL, largeImageURL }) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // console.log(key);
+  const handleModal = () => {
+    setModalIsOpen(!modalIsOpen);
   };
-  closeModal = () => {
-    this.setState({ modalIsOpen: false });
-  };
-  render() {
-    // console.log(this.props);
-    const { webformatURL, tags, id, largeImageURL } = this.props;
 
-    return (
-      <li
-        id={id}
-        onKeyUp={e => console.log(e)}
-        onClick={this.handleModal}
-        className="ImageGalleryItem"
-      >
-        <img className="ImageGalleryItem-image" src={webformatURL} alt={tags} />
-        {this.state.modalIsOpen && (
-          <Modal
-            largeImageURL={largeImageURL}
-            tags={tags}
-            closeModal={this.handleModal}
-          />
-        )}
-      </li>
-    );
-  }
-}
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  return (
+    <li
+      onKeyUp={e => console.log(e)}
+      onClick={handleModal}
+      className="ImageGalleryItem"
+    >
+      <img className="ImageGalleryItem-image" src={webformatURL} alt={tags} />
+      {modalIsOpen && (
+        <Modal
+          largeImageURL={largeImageURL}
+          tags={tags}
+          closeModal={closeModal}
+        />
+      )}
+    </li>
+  );
+};
 export default ImageGalleryItem;
 
 ImageGalleryItem.propTypes = {
