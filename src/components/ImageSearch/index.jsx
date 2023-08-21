@@ -37,7 +37,7 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    const fetchPhotos = async (search, page, key, limit) => {
+    const fetchPhotos = async (search, limit) => {
       // setIsLoading(true);
       try {
         const response = await fetch(
